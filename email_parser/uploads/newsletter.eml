@@ -1,0 +1,18 @@
+From: newsletter@techworld.com 
+To: anupam@you.com 
+Subject: ?? Top Tech News This Week! 
+Date: Wed, 3 Apr 2024 09:00:00 +0000 
+Message-ID: <news567@techworld.com> 
+MIME-Version: 1.0 
+Content-Type: text/html; charset="UTF-8" 
+ 
+<html> 
+<body> 
+<h1>Tech Headlines</h1> 
+<ul> 
+<li>Apple announces new iPhone.</li> 
+<li>OpenAI releases new model.</li> 
+</ul> 
+<p>Read full story at <a href="https://techworld.com">TechWorld</a></p> 
+</body> 
+</html> 

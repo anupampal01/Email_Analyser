@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNS Checker</title>
+</head>
+
+<style>
+
+    /* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 30px;
+    color: #2c3e50;
+}
+
+/* DNS Container */
+.dns-container {
+    background-color: #ffffff;
+    max-width: 850px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.dns-container h2 {
+    text-align: center;
+    color: #34495e;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Domain Input Section */
+.domain-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.domain-form input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.domain-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.domain-form button:hover {
+    background-color: #2980b9;
+}
+
+/* DNS Record Section */
+.dns-records {
+    margin-top: 30px;
+    line-height: 1.7;
+}
+
+.record-type {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.record-type::before {
+    content: "🧾";
+}
+
+.record-values {
+    margin-left: 20px;
+    background-color: #f9fbfc;
+    padding: 10px 15px;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    margin-top: 6px;
+    white-space: pre-wrap;
+}
+
+/* No Record */
+.no-record {
+    color: #e74c3c;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 40px;
+    color: #7f8c8d;
+}
+
+</style>
+<body> 
+    <div class="dns-container">
+
+    <h2>🔍 Basic DNS Record Lookup</h2>
+    <form class="domain-form" method="post">
+        {% csrf_token %}
+        <input type="text" name="domain" placeholder="Enter domain name (e.g., example.com)" required> <br>
+        <button type="submit">Check DNS</button>
+    </form>
+
+    {% if results %}
+        <h3>DNS Records:</h3>
+        <ul>
+            {% for key, value in results.items %}
+                <li><strong>{{ key }}:</strong>
+                    <ul>
+                        {% for item in value %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+</body>
+</html>

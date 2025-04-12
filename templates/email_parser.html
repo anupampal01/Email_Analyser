@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Parser</title>
+    <link rel="stylesheet" href="static/email_parser.css">
+    <style>
+        /* Page background and layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Main container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* File input */
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    background-color: #ecf6fc;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Submit button */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #217dbb;
+}
+
+    </style>
+
+</head>
+<body>
+    <h2>📩 Upload .eml Email File</h2>
+    <form method="POST" enctype="multipart/form-data" action="{% url 'parse_email' %}">
+        {% csrf_token %}
+        <label>Select .eml File:</label>
+        <input type="file" name="eml_file" accept=".eml" required>
+        <button type="submit">Parse Email</button>
+      </form>
+      
+</body>
+</html>

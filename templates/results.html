@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+    
+         /* Global font and layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Main parsed email container */
+.email-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* Section titles */
+h2 {
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Email field formatting */
+.email-field {
+    margin-bottom: 12px;
+}
+
+.email-field strong {
+    color: #2d3436;
+    display: inline-block;
+    width: 100px;
+}
+
+/* Email body block */
+.email-body {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+}
+
+/* Security results styling */
+.security-checks {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff8f0;
+    border-left: 4px solid #f39c12;
+    border-radius: 8px;
+}
+
+.security-checks span {
+    display: block;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Fail/Pass colors */
+.fail {
+    color: #e74c3c;
+}
+
+.pass {
+    color: #27ae60;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <!-- Add navigation items here -->
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <!-- Main content goes here -->
+            <<!-- email_parser/templates/email_parser/results.html -->
+<h2>Email Parsed Successfully</h2>
+
+<p><strong>From:</strong> {{ From }}</p>
+<p><strong>To:</strong> {{ To }}</p>
+<p><strong>Subject:</strong> {{ Subject }}</p>
+<p><strong>Date:</strong> {{ Date }}</p>
+<p><strong>Body:</strong></p>
+<pre>{{ Body }}</pre>
+
+<h3>SPF, DKIM, DMARC Records</h3>
+<ul>
+  <li><strong>SPF:</strong> {{ SPF }}</li>
+  <li><strong>DKIM:</strong> {{ DKIM }}</li>
+  <li><strong>DMARC:</strong> {{ DMARC }}</li>
+</ul>
+
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Footer content goes here</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to your JS file -->
+</body>
+
+</html>
